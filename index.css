@@ -7,7 +7,7 @@ body{
     user-select: none;
 }
 .container{
-    margin:25px auto;
+    margin:30px auto;
     max-width: 390px ;
     display: block;
      text-align: center;
@@ -41,8 +41,10 @@ input{
 .comment-input{
    height:100px;
   padding: 20px 12px;
+  font-family: 'Inter', sans-serif;
+  border-radius: 8px;
 }
-.from-to-input{
+.flexbox{
 display: flex;
 justify-content: space-between;
 margin: 10px 0;
@@ -70,4 +72,25 @@ h2{
     font-size: 20px;
     margin: 20px;
 
+}
+.endorsement-console li{
+     list-style: none;
+     background: #fff;
+     text-align: start;
+     padding:20px 12px 2px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color:#1b1924;
+    border-radius: 8px;
+    
+}
+.endorsement-console h5{
+   font-family: 'Inter', sans-serif;
+}
+.endorsement-console p{
+    margin-top: 12px;
+    margin-bottom: 10px;
+}
+.like-btn{
+    border:none;
 }
