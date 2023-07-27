@@ -27,6 +27,7 @@ h1 {
   margin: 17px auto 20px;
 }
 input {
+  -webkit-appearance: none;
   background: #444059;
   color: #8f8f8f;
   font-size: 15px;
