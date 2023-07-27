@@ -63,11 +63,23 @@ input {
   box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
   transition: all 150ms ease-in-out;
 }
+.publish-btn:hover{
+  cursor:pointer;
+  background-color:indigo;
+  color:#fff;
+
+}
 h2 {
   color: #fff;
   font-family: "Josefin Sans", sans-serif;
   font-size: 20px;
   margin: 25px 0 15px;
+}
+.endorsement-console ul{
+  padding:0;
+  gap:10px;
+  display:flex;
+  flex-direction: column;
 }
 .endorsement-console li {
   list-style: none;
@@ -78,14 +90,17 @@ h2 {
   font-size: 14px;
   color: #1b1924;
   border-radius: 8px;
+     box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
+   transition: all 150ms ease-in-out;
+
 }
-.endorsement-console h5 {
-  font-family: "Inter", sans-serif;
+.endorsement-console li:hover{
+  cursor:pointer;
+  color:#fff;
+  background:#444059;
 }
-.endorsement-console p {
-  margin-top: 12px;
-  margin-bottom: 10px;
-}
+
+
 .like-btn {
   border: none;
 }
