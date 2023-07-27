@@ -29,13 +29,20 @@ publishBtn.addEventListener("click", function (event) {
   let textareaInputValue = textareaInput.value;
   let fromValue = fromInput.value;
   let toValue = toInput.value;
-  push(commentsInDB, {
-    from: fromValue,
-    input: textareaInputValue,
-    to: toValue,
-  });
+  let myComments = `From ${fromValue}
+   ${textareaInputValue}
+To ${toValue}`;
+  myComments = JSON.stringify(myComments);
+
+  push(commentsInDB, myComments);
+
   clearInputForm();
-});
+
+}
+
+);
+
+
 
 onValue(commentsInDB, function (snapshot) {
   if (snapshot.exists()) {
@@ -53,8 +60,12 @@ onValue(commentsInDB, function (snapshot) {
   }
 });
 
+
+
 function clearComment() {
-  commentList.innerHTML = "";
+  textareaInput.innerHTML = "";
+  fromInput.innerHTML = "";
+  toInput.innerHTML = "";
 }
 function clearInputForm() {
   textareaInput.value = "";
@@ -70,7 +81,7 @@ function appendComment(item) {
   newComment.innerHTML = itemValue;
   console.log(itemValue);
 
-  newComment.addEventListener("ckick", function () {
+  newComment.addEventListener("click", function () {
     let exactLocationOfItemInDB = ref(database, `comments/${itemID}`);
     remove(exactLocationOfItemInDB);
   });
