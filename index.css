@@ -1,16 +1,20 @@
-* {
+html, body{
   margin: 0;
   padding: 0;
-}
-body {
   background: #1b1924;
+  user-select: none;
+  text-align: center;
   user-select: none;
 }
 .container {
-  width: 390px;
+  width: 400px;
   margin: 30px auto;
-  display: block;
-  text-align: center;
+  display:flex;
+  flex-direction: column;
+}
+img{
+width:100px;
+margin:0 auto;
 }
 .grid {
   display: grid;
@@ -19,7 +23,7 @@ body {
 }
 
 h1 {
-  color: #fff;
+  color: whitesmoke;
   font-family: "Josefin Sans", sans-serif;
   font-size: 25px;
   font-weight: 700;
@@ -27,7 +31,7 @@ h1 {
   margin: 17px auto 20px;
 }
 input {
-  -webkit-appearance: none;
+ 
   background: #444059;
   color: #8f8f8f;
   font-size: 15px;
@@ -67,11 +71,11 @@ input {
 .publish-btn:hover{
   cursor:pointer;
   background-color:indigo;
-  color:#fff;
+  color:whitesmoke;
 
 }
 h2 {
-  color: #fff;
+  color: whitesmoke;
   font-family: "Josefin Sans", sans-serif;
   font-size: 20px;
   margin: 25px 0 15px;
@@ -84,7 +88,7 @@ h2 {
 }
 .endorsement-console li {
   list-style: none;
-  background: #fff;
+  background: whitesmoke;
   text-align: start;
   padding: 20px 12px 8px;
   font-family: "Inter", sans-serif;
@@ -97,7 +101,7 @@ h2 {
 }
 .endorsement-console li:hover{
   cursor:pointer;
-  color:#fff;
+  color:whitesmoke;
   background:#444059;
 }
 
