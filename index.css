@@ -27,7 +27,7 @@ textarea{
 }
 
 input {
-  background: #444059;
+
   color: #8f8f8f;
   font-size: 15px;
   font-family: "Inter", sans-serif;
@@ -35,10 +35,8 @@ input {
   border: none;
   border-radius: 8px;
   margin:10px 0;
-  padding:10px 7px;
   text-align: center;
-  
-  
+    background-color: #444059;
   
 }
 .publish-btn {
@@ -53,11 +51,7 @@ input {
   transition: all 150ms ease-in-out;
   width:100%;
 }
-.flexbox{
-  display:flex;
- justify-content: space-between;
-  
-}
+
 .publish-btn:hover{
   cursor:pointer;
   background-color:indigo;
