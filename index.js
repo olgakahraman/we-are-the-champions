@@ -29,7 +29,7 @@ publishBtn.addEventListener("click", function () {
   let textareaInputValue = textareaInput.value;
   let fromValue = fromInput.value;
   let toValue = toInput.value;
-  let myComments = `<div><strong>To ${toValue}</strong></div> <br /> <div>${textareaInputValue}</div> <br /><div><strong>From ${fromValue}</strong></div> `;
+  let myComments = `<div><strong>To ${toValue}</strong></div>  <div>${textareaInputValue}</div> <div><strong>From ${fromValue}</strong></div> <div> <button id="likeBtn" class="like-btn"><i class="fa-regular fa-heart"></i></button>`;
   
 
   push(commentsInDB, myComments);
