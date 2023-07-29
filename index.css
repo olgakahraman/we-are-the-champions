@@ -30,16 +30,13 @@ textarea{
    border: none;
 }
 input {
-
   color: #8f8f8f;
   font-size: 15px;
   font-family: "Inter", sans-serif;
   font-weight: 400;
-  
   border-radius: 8px;
   margin:10px 0;
   text-align: center;
-   
   
 }
 .publish-btn {
@@ -57,13 +54,11 @@ input {
 
 .publish-btn:hover{
   cursor:pointer;
-  background-color:rgb(38, 3, 70);
+  background-color:rgb(76, 138, 231);
   color:whitesmoke;
   
-
 }
 h2 {
- 
   font-family: "Josefin Sans", sans-serif;
   font-size: 20px;
   margin: 25px 0 15px;
@@ -77,18 +72,28 @@ h2 {
 .endorsement-console li {
   list-style: none;
   text-align: start;
-  padding: 20px 12px 8px;
+  background-color: whitesmoke;
+  padding: 10px;
   font-family: "Inter", sans-serif;
   font-size: 14px;
   color: #1b1924;
   border-radius: 8px;
   box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
   transition: all 150ms ease-in-out;
-  background-color: whitesmoke;
+  
 
 }
-.endorsement-console li:hover{
+
+
+.like-btn{
+  border:none;
+  position:relative;
+  left:330px;
+  background: none;
+  transition: all 150ms ease-in-out;
+ 
+}
+.like-btn:hover{
+  color:palevioletred;
   cursor:pointer;
-  color:whitesmoke;
-  background:#444059;
 }

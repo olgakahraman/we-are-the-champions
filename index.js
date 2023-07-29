@@ -24,15 +24,13 @@ const commentList = document.querySelector("#comment");
 
 const publishBtn = document.querySelector("#publishBtn");
 
-publishBtn.addEventListener("click", function (event) {
-  event.preventDefault();
+publishBtn.addEventListener("click", function () {
+ 
   let textareaInputValue = textareaInput.value;
   let fromValue = fromInput.value;
   let toValue = toInput.value;
-  let myComments = `From ${fromValue}
-   ${textareaInputValue}
-To ${toValue}`;
-  myComments = JSON.stringify(myComments);
+  let myComments = `<div><strong>To ${toValue}</strong></div> <br /> <div>${textareaInputValue}</div> <br /><div><strong>From ${fromValue}</strong></div> `;
+  
 
   push(commentsInDB, myComments);
 
@@ -79,11 +77,6 @@ function appendComment(item) {
 
   let newComment = document.createElement("li");
   newComment.innerHTML = itemValue;
-  console.log(itemValue);
-
-  newComment.addEventListener("click", function () {
-    let exactLocationOfItemInDB = ref(database, `comments/${itemID}`);
-    remove(exactLocationOfItemInDB);
-  });
+ 
   commentList.append(newComment);
 }
