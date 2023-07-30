@@ -4,7 +4,8 @@ import {
   ref,
   push,
   onValue,
-  remove,
+  remove
+  
 } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
 
 const appSettings = {
@@ -15,9 +16,7 @@ const database = getDatabase(app);
 const commentsInDB = ref(database, "comments");
 
 const textareaInput = document.querySelector("#commentInput");
-
 const fromInput = document.querySelector("#fromInput");
-
 const toInput = document.querySelector("#toInput");
 
 const commentList = document.querySelector("#comment");
@@ -25,39 +24,32 @@ const commentList = document.querySelector("#comment");
 const publishBtn = document.querySelector("#publishBtn");
 
 publishBtn.addEventListener("click", function () {
- 
-  let textareaInputValue = textareaInput.value;
-  let fromValue = fromInput.value;
-  let toValue = toInput.value;
-  let myComments = `<div><strong>To ${toValue}</strong></div>  <div>${textareaInputValue}</div> <div><strong>From ${fromValue}</strong></div> <div> <button id="likeBtn" class="like-btn"><i class="fa-regular fa-heart"></i></button>`;
-  
-
-  push(commentsInDB, myComments);
-
+ let data = {
+  text: textareaInput.value,
+  from: fromInput.value,
+  to:  toInput.value
+  }
+  if (fromInput.value || toInput.value || textareaInput.value)
+  push(commentsInDB, data);
   clearInputForm();
-
 }
-
 );
-
-
 
 onValue(commentsInDB, function (snapshot) {
   if (snapshot.exists()) {
-    let itemsArray = Object.entries(snapshot.val());
+    let itemsArray = Object.entries(snapshot.val()).reverse();
     clearComment();
 
     for (let i = 0; i < itemsArray.length; i++) {
       let currentItem = itemsArray[i];
-      let currentItemID = currentItem[0];
-      let currentItemValue = currentItem[1];
+     
+    
       appendComment(currentItem);
     }
-  } else {
+    }else {
     commentList.innerHTML = "No comments here....yet";
-  }
+    }
 });
-
 
 
 function clearComment() {
@@ -71,12 +63,26 @@ function clearInputForm() {
   toInput.value = "";
 }
 
-function appendComment(item) {
-  let itemID = item[0];
-  let itemValue = item[1];
+
+function appendComment(entry) {
+  let itemID = entry[0];
+let entryText = entry[1].text;
+let entryFrom = entry[1].from;
+let entryTo = entry[1].to;
+
+  
+ 
 
   let newComment = document.createElement("li");
-  newComment.innerHTML = itemValue;
+  newComment.innerHTML = `<div> To: ${entryTo}</div> <div>${entryText}</div> <div>From: ${entryFrom}</div><div><button class="like-btn" id="likeBtn"><i class="fa-regular fa-heart"></i></button>`;
  
-  commentList.append(newComment);
+  newComment.addEventListener("click", function(){
+    let exactLocationOfItemInDB = ref(database, `comments/${itemID}`)
+    remove(exactLocationOfItemInDB);
+  })
+ 
+commentList.append(newComment);
 }
+
+
+
