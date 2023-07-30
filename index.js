@@ -74,15 +74,17 @@ let entryTo = entry[1].to;
  
 
   let newComment = document.createElement("li");
-  newComment.innerHTML = `<div> To: ${entryTo}</div> <div>${entryText}</div> <div>From: ${entryFrom}</div><div><button class="like-btn" id="likeBtn"><i class="fa-regular fa-heart"></i></button>`;
+  newComment.innerHTML = `<div> To: ${entryTo}</div> <div>${entryText}</div> <div>From: ${entryFrom}</div>`;
  
-  newComment.addEventListener("click", function(){
-    let exactLocationOfItemInDB = ref(database, `comments/${itemID}`)
-    remove(exactLocationOfItemInDB);
-  })
+ newComment.addEventListener("click", function(){
+  let exactLocationOfItemInDB = ref(database, `comments/${itemID}`);
+  remove(exactLocationOfItemInDB);
+ })
+
  
 commentList.append(newComment);
 }
+
 
 
 
