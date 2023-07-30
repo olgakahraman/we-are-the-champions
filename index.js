@@ -65,25 +65,7 @@ function appendComment(entry) {
 
   let newComment = document.createElement("li");
   newComment.innerHTML = `<div> To: ${entryTo}</div> <div>${entryText}</div> <div>From: ${entryFrom}</div>`;
-  let likeButton = document.createElement("button");
-  
-  likeButton.innerHTML = `<button id="likeButton" class="like-btn" ><i class="fa-regular fa-heart"></i></button>`;
-
-   
-
-likeButton.addEventListener("click", function(){
-   
-   
-
-    if (likeButton.style.color = "palevioletred") {
-      likeButton.style.color = "grey";
-
-
-    } else {
-      likeButton.style.color = "palevioletred";
-   
-    }
-  });
+ 
 
   newComment.addEventListener("click", function () {
     let exactLocationOfItemInDB = ref(database, `comments/${itemID}`);
@@ -91,6 +73,5 @@ likeButton.addEventListener("click", function(){
   });
 
   commentList.append(newComment);
-  commentList.append(likeButton);
  
 }
