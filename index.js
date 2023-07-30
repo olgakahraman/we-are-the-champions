@@ -53,12 +53,12 @@ onValue(commentsInDB, function (snapshot) {
 
 
 function clearComment() {
-  textareaInput.innerHTML = "";
-  fromInput.innerHTML = "";
-  toInput.innerHTML = "";
+  commentList.innerHTML = "";
 }
 function clearInputForm() {
-  commentList.value = "";
+ textareaInput.value = "";
+ fromInput.value = "";
+ toInput.value = "";
 }
 
 
