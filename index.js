@@ -58,20 +58,15 @@ function clearComment() {
   toInput.innerHTML = "";
 }
 function clearInputForm() {
-  textareaInput.value = "";
-  fromInput.value = "";
-  toInput.value = "";
+  commentList.value = "";
 }
 
 
 function appendComment(entry) {
-  let itemID = entry[0];
+let itemID = entry[0];
 let entryText = entry[1].text;
 let entryFrom = entry[1].from;
 let entryTo = entry[1].to;
-
-  
- 
 
   let newComment = document.createElement("li");
   newComment.innerHTML = `<div> To: ${entryTo}</div> <div>${entryText}</div> <div>From: ${entryFrom}</div>`;
@@ -81,8 +76,8 @@ let entryTo = entry[1].to;
   remove(exactLocationOfItemInDB);
  })
 
- 
 commentList.append(newComment);
+
 }
 
 
