@@ -23,15 +23,37 @@ const commentList = document.querySelector("#comment");
 const publishBtn = document.querySelector("#publishBtn");
 
 publishBtn.addEventListener("click", function () {
+  if(!isValidInput()){
+    return;
+  }
   let data = {
     text: textareaInput.value,
     from: fromInput.value,
-    to: toInput.value,
+    to: toInput.value
+    
   };
-  if (fromInput.value || toInput.value || textareaInput.value)
+
+
+  
     push(commentsInDB, data);
   clearInputForm();
 });
+
+function isValidInput() {
+  if (!textareaInput.value) {
+    textareaInput.focus();
+    return;
+  }
+  if (!fromInput.value) {
+    fromInput.focus();
+    return false;
+  }
+  if (!toInput.value) {
+    toInput.focus();
+    return false;
+  }
+  return true;
+}
 
 onValue(commentsInDB, function (snapshot) {
   if (snapshot.exists()) {
@@ -58,10 +80,13 @@ function clearInputForm() {
 }
 
 function appendComment(entry) {
+
   let itemID = entry[0];
   let entryText = entry[1].text;
   let entryFrom = entry[1].from;
   let entryTo = entry[1].to;
+
+
 
   let newComment = document.createElement("li");
   newComment.innerHTML = `<div> To: ${entryTo}</div> <div>${entryText}</div> <div>From: ${entryFrom}</div>`;
