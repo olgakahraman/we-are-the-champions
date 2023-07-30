@@ -4,8 +4,7 @@ import {
   ref,
   push,
   onValue,
-  remove
-  
+  remove,
 } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
 
 const appSettings = {
@@ -24,16 +23,15 @@ const commentList = document.querySelector("#comment");
 const publishBtn = document.querySelector("#publishBtn");
 
 publishBtn.addEventListener("click", function () {
- let data = {
-  text: textareaInput.value,
-  from: fromInput.value,
-  to:  toInput.value
-  }
+  let data = {
+    text: textareaInput.value,
+    from: fromInput.value,
+    to: toInput.value,
+  };
   if (fromInput.value || toInput.value || textareaInput.value)
-  push(commentsInDB, data);
+    push(commentsInDB, data);
   clearInputForm();
-}
-);
+});
 
 onValue(commentsInDB, function (snapshot) {
   if (snapshot.exists()) {
@@ -42,44 +40,57 @@ onValue(commentsInDB, function (snapshot) {
 
     for (let i = 0; i < itemsArray.length; i++) {
       let currentItem = itemsArray[i];
-     
-    
+
       appendComment(currentItem);
     }
-    }else {
+  } else {
     commentList.innerHTML = "No comments here....yet";
-    }
+  }
 });
-
 
 function clearComment() {
   commentList.innerHTML = "";
 }
 function clearInputForm() {
- textareaInput.value = "";
- fromInput.value = "";
- toInput.value = "";
+  textareaInput.value = "";
+  fromInput.value = "";
+  toInput.value = "";
 }
 
-
 function appendComment(entry) {
-let itemID = entry[0];
-let entryText = entry[1].text;
-let entryFrom = entry[1].from;
-let entryTo = entry[1].to;
+  let itemID = entry[0];
+  let entryText = entry[1].text;
+  let entryFrom = entry[1].from;
+  let entryTo = entry[1].to;
 
   let newComment = document.createElement("li");
   newComment.innerHTML = `<div> To: ${entryTo}</div> <div>${entryText}</div> <div>From: ${entryFrom}</div>`;
+  let likeButton = document.createElement("button");
+  
+  likeButton.innerHTML = `<button id="likeButton" class="like-btn" ><i class="fa-regular fa-heart"></i></button>`;
+
+   
+
+likeButton.addEventListener("click", function(){
+   
+   
+
+    if (likeButton.style.color = "palevioletred") {
+      likeButton.style.color = "grey";
+
+
+    } else {
+      likeButton.style.color = "palevioletred";
+   
+    }
+  });
+
+  newComment.addEventListener("click", function () {
+    let exactLocationOfItemInDB = ref(database, `comments/${itemID}`);
+    remove(exactLocationOfItemInDB);
+  });
+
+  commentList.append(newComment);
+  commentList.append(likeButton);
  
- newComment.addEventListener("click", function(){
-  let exactLocationOfItemInDB = ref(database, `comments/${itemID}`);
-  remove(exactLocationOfItemInDB);
- })
-
-commentList.append(newComment);
-
 }
-
-
-
-

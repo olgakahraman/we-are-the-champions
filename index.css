@@ -84,15 +84,16 @@ h2 {
   
 }
 
-.like-btn{
-  border:none;
-  position:relative;
-  left:330px;
+.endorsement-console button {
+ 
+ border:transparent;
   background: none;
   transition: all 150ms ease-in-out;
- 
+  color:grey;
+  
+ font-size: 22px;
 }
 .like-btn:hover{
-  color:palevioletred;
+ 
   cursor:pointer;
 }
