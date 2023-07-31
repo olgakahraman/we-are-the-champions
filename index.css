@@ -85,4 +85,6 @@ h2 {
 
   
 }
-
+.to, .from{
+  text-transform: capitalize;
+}

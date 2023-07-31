@@ -89,7 +89,7 @@ function appendComment(entry) {
 
 
   let newComment = document.createElement("li");
-  newComment.innerHTML = `<div> To: ${entryTo}</div> <div>${entryText}</div> <div>From: ${entryFrom}</div>`;
+  newComment.innerHTML = `<div class="to"> <strong>To: ${entryTo}</strong></div> <div>${entryText}</div> <div class="from"><strong>From: ${entryFrom}</strong></div>`;
  
 
   newComment.addEventListener("click", function () {
